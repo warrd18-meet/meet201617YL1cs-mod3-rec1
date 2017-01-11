@@ -27,8 +27,9 @@ class Branch:
                 at +-30 degrees from the vector defined by this branch, and are half
                 as long.
         '''
-        new_stop1=self.stop[0]+1j*self.stop[1]+0.5*self.length*cmath.exp(1j*(self.angle-cmath.pi/6.0))
-        new_stop2=self.stop[0]+1j*self.stop[1]+0.5*self.length*cmath.exp(1j*(self.angle+cmath.pi/6.0))
+        rel_branch_size=0.5
+        new_stop1=self.stop[0]+1j*self.stop[1]+rel_branch_size*self.length*cmath.exp(1j*(self.angle-cmath.pi/6.0))
+        new_stop2=self.stop[0]+1j*self.stop[1]+rel_branch_size*self.length*cmath.exp(1j*(self.angle+cmath.pi/6.0))
 
         branch1=Branch(self.stop, (new_stop1.real,new_stop1.imag))
         branch2=Branch(self.stop, (new_stop2.real,new_stop2.imag))
