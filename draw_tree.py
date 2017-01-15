@@ -18,6 +18,17 @@ def draw_tree( this_branch, branch_num ):
     '''
     #Complete this method
 
+    turtle.pendown()
+    turtle.goto(0,-256)
+    '''
+    def split(self):
+        rel_branch_size=0.5
+        new_stop1=self.stop[0]+1j*self.stop[1]+rel_branch_size*self.length*cmath.exp(1j*(self.angle-cmath.pi/6.0))
+        new_stop2=self.stop[0]+1j*self.stop[1]+rel_branch_size*self.length*cmath.exp(1j*(self.angle+cmath.pi/6.0))
+
+        branch1=Branch(self.stop, (new_stop1.real,new_stop1.imag))
+        branch2=Branch(self.stop, (new_stop2.real,new_stop2.imag))
+        '''
 draw_tree(branch1,1)
 
 turtle.mainloop()
